@@ -1,0 +1,35 @@
+<div class="text-center">
+  <label for="" class="mx-3">Filter By team</label>
+  <input type="text" [(ngModel)]='term' [ngModelOptions]="{standalone: 
+ true}">
+</div>
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">score one</th>
+      <th scope="col">score two</th>
+      <th scope="col">Team one</th>
+      <th scope="col">Team two</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- tr will be generated matchesTab.length times -->
+    <tr *ngFor="let m of pageOfItems   | myFilter:term      ">
+      <th scope="row">{{m._id}}</th>
+      <td>{{m.scoreOne}}</td>
+      <td>{{m.scoreTwo}}</td>
+      <td>{{m.teamOne}}</td>
+      <td>{{m.teamTwo}}</td>
+      <td><button class="btn btn-success mr-2" (click)="displayMatch(m._id)">display</button>
+        <button class="btn btn-warning mr-2" (click)="updateMatch(m._id)">Uptade</button>
+        <button class="btn btn-primary" (click)="deleteMatch(m._id)">Delete</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<div class="card-footer pb-0 pt-3">
+  <jw-pagination [items]="matchesTab" [pageSize]="3" (changePage)="onChangePage($event)"></jw-pagination>
+</div>

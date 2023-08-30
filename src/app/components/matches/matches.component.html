@@ -1,0 +1,7 @@
+<app-banner X="All Matches"></app-banner>
+
+<div *ngFor="let m of matches">
+  <app-score [X]="m"  (matchesOutput)="updateMatches($event)"></app-score>
+</div>
+
+

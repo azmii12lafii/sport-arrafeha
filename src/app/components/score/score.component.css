@@ -1,0 +1,12 @@
+.win{
+    font-size: xx-large;
+    color: green;
+}
+.lose{
+    font-size: large;
+    color: red;
+}
+.nulle{
+    font-size: x-large;
+    color: blue;
+}
